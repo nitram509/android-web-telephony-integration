@@ -1,0 +1,20 @@
+
+#msg {
+  width: 140px;
+}
+
+.glyphicon.glyphicon-earphone {
+  animation: demo-rotate ease-in-out 0.5s alternate infinite;
+}
+
+@keyframes demo-rotate {
+  from { transform: rotate(0deg); }
+  33% { transform: rotate(30deg); }
+  66% { transform: rotate(-30deg); }
+  to { transform: rotate(0deg); }
+}
+
+.phonebook-header {
+  font-weight: bold;
+  text-decoration: underline;
+}

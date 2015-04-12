@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/wti-web.css"/>
+  <script type="text/javascript" src="js/prefixfree.min.js"></script>
+  <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="js/qrcode.min.js"></script>
+  <script type="text/javascript" src="js/qrcode.helper.js"></script>
+  <script type="text/javascript" src="js/phonebook.js"></script>
+  <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
+  <title>Android Web Telephony Integration (WTI)</title>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="masthead">
+    <h1 class="text-muted well">Android Web Telephony Integration (WTI)</h1>
+  </div>
+
+  <div class="row">
+    <div id="pairingBox" class="col-lg-3">
+      <h2>
+        <span class="glyphicon glyphicon-link"></span>
+        Pairing
+      </h2>
+
+      <p>
+        <input id="msg" type="text" placeholder="here comes qr!" value="uid12345" onchange="update_qrcode()" onkeypress="update_qrcode()">
+      </p>
+
+      <div id="qr"></div>
+    </div>
+
+    <div class="col-lg-3">
+      <h2>
+        <span class="glyphicon glyphicon-phone"></span>
+        Me
+      </h2>
+
+
+      <h4 id="appNumber"><!-- placeholder --></h4>
+
+      <p id="waitingMessageBlock">
+        <span class="text-muted">Waiting for the phone to connect...</span>
+        <img src="img/loader.gif" alt="waiting..."/>
+      </p>
+
+    </div>
+
+    <div class="col-lg-6">
+      <div id="calleeInfo" class="well">
+        <h2>
+          <span class="glyphicon glyphicon-earphone"></span>
+          <span id="calleeNumber" class="text-primary"><!-- placeholder --></span>
+        </h2>
+        <h5 class="nowDateTime text-muted">
+          <script type="text/javascript">
+            var date = new Date();
+            var now = date.toLocaleDateString() + " - " + date.toLocaleTimeString();
+            $(".nowDateTime").text(now);
+          </script>
+        </h5>
+        <div class="text-primary">
+          <img id="calleeAvatar" src="phonebook/nophoto.gif" alt="avatar" class="img-thumbnail" width="200px">
+        </div>
+        <h4 id="calleeName" class="text-info"><!-- placeholder --></h4>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <hr>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>
+        <span class="glyphicon glyphicon-book"></span>
+        Phone book
+      </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="phonebook"><!-- will be loaded at runtime --></div>
+    </div>
+  </div>
+
+</div>
+
+<script type="text/javascript">update_qrcode();</script>
+<script type="text/javascript" src="js/wti-web.js"></script>
+
+</body>
+</html>
