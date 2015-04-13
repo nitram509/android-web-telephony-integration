@@ -93,7 +93,8 @@ function onIncomingCall(number) {
     rootRef.set(
         {
           'app': {
-            'outgoing': number
+            'outgoing': number,
+            'connected': true
           }
         }
     );
