@@ -2,7 +2,7 @@
 Android Web Telephony Integration (WTI)
 ==================================================
 
-Web Telephony Integration (WTI) is like Computer Telephony Integration (CTI),
+Web Telephony Integration (WTI) is like Computer Telephony Integration [CTI](http://en.wikipedia.org/wiki/Computer_telephony_integration),
 but for the Web ;-)
 
 This is a proof of concept (PoC) of how to integrate mobile phones
@@ -50,7 +50,7 @@ There are five important things, to make this magic work:
 4. Via reading and writing document nodes, both apps communicate with each other
 5. Technical protocol handling of publishing and subscribing events is handled within the Firebase clients
 
-These use case do work in this proof of concept:
+These use cases do already work:
 
 * Display incoming calls
 * Lookup incoming phone number in phone book an display photo
