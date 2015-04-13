@@ -4,10 +4,17 @@ import android.util.Log;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.ValueEventListener;
+import com.github.nitram509.wti.log.UserLogService;
 
 public class FirebaseService {
 
   private static final String TAG = "FirebaseService";
+
+  private UserLogService userLogService;
+
+  public FirebaseService(UserLogService userLogService) {
+    this.userLogService = userLogService;
+  }
 
   public void sendConnected(boolean connected) {
     Firebase appConnectedRef = new Firebase("https://cti-demo.firebaseIO.com/app/connected");
@@ -37,10 +44,10 @@ public class FirebaseService {
         if (dataSnapshotValue != null && !dataSnapshotValue.toString().isEmpty()) {
           nummer = dataSnapshotValue.toString();
         }
-        Log.d(TAG, "Event: app/outgoing nummer = " + nummer);
+        userLogService.log("Event: app/outgoing nummer = " + nummer);
         if (nummer != null) {
-          initCallHandler.doCall(nummer);
-          appOutgoingNumberRef.setValue(null);
+//          initCallHandler.doCall(nummer);
+//          appOutgoingNumberRef.setValue(null);
         }
       }
 

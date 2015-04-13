@@ -52,7 +52,7 @@ public class WtiDemo extends Activity {
   private void initServices() {
     userLogService = new UserLogService(txtUserLog);
 
-    firebaseService = new FirebaseService();
+    firebaseService = new FirebaseService(userLogService);
     phoneStateListener = new PhoneStateChangedHandler(firebaseService, userLogService);
     telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
   }
