@@ -67,10 +67,10 @@ function onIncomingCall(number) {
     appConnectedRef.on('value', function (snapshot) {
       if (snapshot.val()) {
         $("#waitingMessageBlock").hide();
-        $("#pairingBox").hide('fast');
+        $("#outgoingCallBox").show('fast');
       } else {
         $("#waitingMessageBlock").show();
-        $("#pairingBox").show('fast');
+        $("#outgoingCallBox").hide('fast');
       }
     });
 
