@@ -44,6 +44,13 @@ function onIncomingCall(number) {
     $(window).on('unload', function (event) {
       _sendWebConnected(false);
     });
+    $('#btnCall').click(function (e) {
+      var nr = $('#txtOutgoingNumber').val();
+      if (nr && nr.length > 0) {
+        _sendOutgoingCallWithNumber(""); // only to initiate a new change event - ugly hack, but works ;-)
+        _sendOutgoingCallWithNumber(nr);
+      }
+    });
   }
 
   function _initFirebaseHandlers() {
@@ -77,6 +84,16 @@ function onIncomingCall(number) {
         {
           'web': {
             'connected': statusFlag
+          }
+        }
+    );
+  }
+
+  function _sendOutgoingCallWithNumber(number) {
+    rootRef.set(
+        {
+          'app': {
+            'outgoing': number
           }
         }
     );

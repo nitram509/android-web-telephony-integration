@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="css/wti-web.css"/>
   <script type="text/javascript" src="js/prefixfree.min.js"></script>
   <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
-  <script type="text/javascript" src="js/qrcode.min.js"></script>
-  <script type="text/javascript" src="js/qrcode.helper.js"></script>
   <script type="text/javascript" src="js/phonebook.js"></script>
   <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
   <title>Android Web Telephony Integration (WTI)</title>
@@ -29,10 +27,15 @@
       </h2>
 
       <p>
-        <input id="msg" type="text" placeholder="here comes qr!" value="uid12345" onchange="update_qrcode()" onkeypress="update_qrcode()">
+        <input id="txtOutgoingNumber" type="text" placeholder="a number to call" value="">
+      </p>
+      <p>
+        <button id="btnCall" class="btn btn-primary">
+          <span class="glyphicon glyphicon-phone"></span>
+          Call
+        </button>
       </p>
 
-      <div id="qr"></div>
     </div>
 
     <div class="col-lg-3">
@@ -94,7 +97,6 @@
 
 </div>
 
-<script type="text/javascript">update_qrcode();</script>
 <script type="text/javascript" src="js/wti-web.js"></script>
 
 </body>
