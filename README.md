@@ -20,7 +20,7 @@ This PoC is powered by [Firebase - THE REALTIME APP PLATFORM](https://www.fireba
 Screenshot
 ---------------------------------------------------
 
-##### Web, single page app (demo)
+##### Web, single page app
 
 ![Screenshot Web app](/screenshots/web.png?raw=true)
 
