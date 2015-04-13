@@ -27,7 +27,7 @@ public class FirebaseService {
     Log.d(TAG, "send incoming=" + incomingNumber);
   }
 
-  public void registerOutgoingCallbackHandler(final InitiereAnrufHandler initiereAnrufHandler) {
+  public void registerOutgoingCallbackHandler(final InitCallHandler initCallHandler) {
     final Firebase appOutgoingNumberRef = new Firebase("https://cti-demo.firebaseIO.com/app/outgoing");
     appOutgoingNumberRef.addValueEventListener(new ValueEventListener() {
       @Override
@@ -39,7 +39,7 @@ public class FirebaseService {
         }
         Log.d(TAG, "Event: app/outgoing nummer = " + nummer);
         if (nummer != null) {
-          initiereAnrufHandler.rufeAn(nummer);
+          initCallHandler.doCall(nummer);
           appOutgoingNumberRef.setValue(null);
         }
       }

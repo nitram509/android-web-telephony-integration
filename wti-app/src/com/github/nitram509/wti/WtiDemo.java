@@ -2,17 +2,16 @@ package com.github.nitram509.wti;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.widget.Button;
 import android.widget.TextView;
 import com.github.nitram509.wti.firebase.FirebaseService;
-import com.github.nitram509.wti.firebase.InitiereAnrufHandler;
 import com.github.nitram509.wti.log.UserLogService;
 import com.github.nitram509.wti.phonestate.PhoneStateChangedHandler;
+
+import static com.github.nitram509.wti.TelephonyManagerTools.getLine1Number;
 
 public class WtiDemo extends Activity {
 
@@ -27,9 +26,6 @@ public class WtiDemo extends Activity {
   private PhoneStateListener phoneStateListener;
   private UserLogService userLogService;
 
-  /**
-   * Called when the activity is first created.
-   */
   @Override
   public void onCreate(Bundle bundle) {
     super.onCreate(bundle);
@@ -39,12 +35,12 @@ public class WtiDemo extends Activity {
     initServices();
     initFirebaseCallbackHandlers();
 
-    txtOwnNumber.setText(telephonyManager.getLine1Number());
+    txtOwnNumber.setText("Own number: " + getLine1Number(telephonyManager));
 
     telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
 
-    btnConnectFireBase.setOnClickListener(new ConnectFirebaseClickListener(bundle, telephonyManager, firebaseService));
-    btnHangUpFireBase.setOnClickListener(new HangUpFirebaseClickListener(firebaseService));
+    btnConnectFireBase.setOnClickListener(new ConnectFirebaseClickListener(telephonyManager, firebaseService, userLogService));
+    btnHangUpFireBase.setOnClickListener(new HangUpFirebaseClickListener(firebaseService, userLogService));
   }
 
   @Override
@@ -62,15 +58,7 @@ public class WtiDemo extends Activity {
   }
 
   private void initFirebaseCallbackHandlers() {
-    firebaseService.registerOutgoingCallbackHandler(new InitiereAnrufHandler() {
-      @Override
-      public void rufeAn(String nummer) {
-        userLogService.log("Starte Anruf an: " + nummer);
-        String uriString = "tel:" + nummer.trim();
-        Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse(uriString));
-        startActivity(callIntent);
-      }
-    });
+    firebaseService.registerOutgoingCallbackHandler(new OutgoingCallHandler(this, userLogService));
   }
 
   private void initUIElements() {
