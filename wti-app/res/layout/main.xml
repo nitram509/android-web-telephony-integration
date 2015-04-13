@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+  <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Android Web Telephony Integration (WTI)"
+      android:textSize="22sp"
+      android:gravity="center_horizontal" android:singleLine="false" android:typeface="monospace"/>
+  <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/txtOwnNumber"
+      android:textSize="20sp"
+      />
+  <Button android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:text="Connect"
+          android:id="@+id/btnConnectFirebase"
+          android:textSize="20sp"
+      />
+  <Button android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:text="Hang up"
+          android:id="@+id/btnHangUpFirebase"
+          android:textSize="20sp"
+      />
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/txtUserLog"
+      android:text=""
+      />
+</LinearLayout>
