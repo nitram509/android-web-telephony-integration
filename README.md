@@ -11,6 +11,12 @@ This demo app is based on Android, but can be ported to iOS too.
 
 This PoC is powered by [Firebase - THE REALTIME APP PLATFORM](https://www.firebase.com/)
 
+
+##### License
+
+[![License](https://img.shields.io/:license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+
+
 Technology used
 ---------------------------------------------------
 
@@ -23,3 +29,8 @@ Technology used
 * jQuery 2.0.3
 * Firebase.js (directly from their CDN)
 
+
+Community & Badges
+--------------------
+
+If you like this project, endorse please: [![endorse](https://api.coderwall.com/nitram509/endorsecount.png)](https://coderwall.com/nitram509)
