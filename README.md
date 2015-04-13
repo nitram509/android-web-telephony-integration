@@ -44,11 +44,11 @@ A simple architecture diagram may be worth than 1000 words ...
 
 There are five important things, to make this magic work:
 
-1. Firebase provides a shared document (JSON) based
+1. Firebase provides a shared document (JSON based)
 2. The Andriod app connects to Firebase and registers callback handlers on certain nodes 
 3. The Web app connects to Firebase and registers callback handlers on certain nodes
 4. Via reading and writing document nodes, both apps communicate with each other
-5. All publishing and subscribing of changes events is handled within the Firebase clients.
+5. Technical protocol handling of publishing and subscribing events is handled within the Firebase clients
 
 These use case do work in this proof of concept:
 
