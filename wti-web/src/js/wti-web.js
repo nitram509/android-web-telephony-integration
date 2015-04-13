@@ -50,7 +50,7 @@ function onIncomingCall(number) {
     appNumberRef.on('value', function (snapshot) {
       if (snapshot.val() !== null) {
         var ownMobileNumber = snapshot.val();
-        ownMobileNumber = ownMobileNumber.length > 0 ? ownMobileNumber : "Connected, but number not provided by Android app";
+        ownMobileNumber = ownMobileNumber != '00000000' ? ownMobileNumber : "Connected, but number not provided by Android app";
         $("#appNumber").text(ownMobileNumber);
       } else {
         $("#appNumber").text("");
