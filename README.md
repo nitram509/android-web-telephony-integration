@@ -17,6 +17,11 @@ This PoC is powered by [Firebase - THE REALTIME APP PLATFORM](https://www.fireba
 [![License](https://img.shields.io/:license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 
+Screenshot
+---------------------------------------------------
+
+![Sample screenshot Web App](/screenshots/web.png?raw=true)
+
 Technology used
 ---------------------------------------------------
 
