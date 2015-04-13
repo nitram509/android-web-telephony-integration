@@ -20,7 +20,22 @@ This PoC is powered by [Firebase - THE REALTIME APP PLATFORM](https://www.fireba
 Screenshot
 ---------------------------------------------------
 
-![Sample screenshot Web App](/screenshots/web.png?raw=true)
+##### Web, single page app (demo)
+
+![Screenshot Web app](/screenshots/web.png?raw=true)
+
+##### Android app
+
+![Screenshot Android app](/screenshots/app-small.png?raw=true)
+
+
+How it works
+---------------------------------------------------
+
+A simple architecture diagram may be worth than 1000 words ... 
+
+![How it works in a simple architecture diagram](/docs/how_it_works.png?raw=true)
+
 
 Technology used
 ---------------------------------------------------
