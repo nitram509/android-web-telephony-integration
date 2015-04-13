@@ -3,10 +3,10 @@ package com.github.nitram509.wti;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import com.github.nitram509.wti.firebase.InitCallHandler;
+import com.github.nitram509.wti.firebase.CallHandler;
 import com.github.nitram509.wti.log.UserLogService;
 
-class OutgoingCallHandler implements InitCallHandler {
+class OutgoingCallHandler implements CallHandler {
 
   private final Activity activity;
   private final UserLogService userLogService;
@@ -21,6 +21,10 @@ class OutgoingCallHandler implements InitCallHandler {
     userLogService.log("Starting call to: " + number);
     String uriString = "number:" + number.trim();
     Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse(uriString));
-    activity.startActivity(callIntent);
+    try {
+      activity.startActivity(callIntent);
+    } catch (Exception e) {
+      userLogService.log("Error: " + e.getMessage());
+    }
   }
 }

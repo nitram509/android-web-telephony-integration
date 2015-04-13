@@ -34,20 +34,20 @@ public class FirebaseService {
     Log.d(TAG, "send incoming=" + incomingNumber);
   }
 
-  public void registerOutgoingCallbackHandler(final InitCallHandler initCallHandler) {
+  public void registerOutgoingCallbackHandler(final CallHandler callHandler) {
     final Firebase appOutgoingNumberRef = new Firebase("https://cti-demo.firebaseIO.com/app/outgoing");
     appOutgoingNumberRef.addValueEventListener(new ValueEventListener() {
       @Override
       public void onDataChange(DataSnapshot dataSnapshot) {
-        String nummer = null;
+        String number = null;
         Object dataSnapshotValue = dataSnapshot.getValue();
         if (dataSnapshotValue != null && !dataSnapshotValue.toString().isEmpty()) {
-          nummer = dataSnapshotValue.toString();
+          number = dataSnapshotValue.toString();
         }
-        userLogService.log("Event: app/outgoing nummer = " + nummer);
-        if (nummer != null) {
-//          initCallHandler.doCall(nummer);
-//          appOutgoingNumberRef.setValue(null);
+        userLogService.log("Event: app/outgoing number = " + number);
+        if (number != null) {
+          callHandler.doCall(number);
+          appOutgoingNumberRef.setValue(null);
         }
       }
 
