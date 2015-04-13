@@ -19,7 +19,7 @@ class OutgoingCallHandler implements CallHandler {
   @Override
   public void doCall(String number) {
     userLogService.log("Starting call to: " + number);
-    String uriString = "number:" + number.trim();
+    String uriString = "tel:" + number.trim();
     Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse(uriString));
     try {
       activity.startActivity(callIntent);
